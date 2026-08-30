@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a66ff">
+<title>每日新闻推送</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --border: #e8eaf0;
+    --text: #1c1f26; --muted: #6b7280; --accent: #1a66ff;
+    --ai: #7c3aed; --ai-bg: #f3effc;
+    --news: #0f9d58; --news-bg: #eaf7f0;
+    --pol: #1a66ff; --eco: #0f9d58; --ent: #e8590c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    line-height: 1.65; padding-bottom: 48px;
+  }
+  .container { max-width: 640px; margin: 0 auto; padding: 16px 14px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a66ff 0%, #7c3aed 100%);
+    color: #fff; border-radius: 18px; padding: 22px 20px; margin-bottom: 16px;
+    box-shadow: 0 6px 20px rgba(26,102,255,.18);
+  }
+  .header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: .5px; }
+  .header .date { font-size: .85rem; opacity: .92; margin-top: 4px; }
+  .header .chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: rgba(255,255,255,.18); border-radius: 999px; padding: 3px 10px; font-size: .72rem; }
+
+  /* Cards */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 16px; margin-bottom: 14px; }
+  .card-title { display: flex; align-items: center; gap: 8px; font-size: 1.02rem; font-weight: 700; margin-bottom: 12px; }
+  .card-title .count { font-size: .72rem; font-weight: 500; color: var(--muted); background: #f0f1f4; border-radius: 999px; padding: 2px 8px; }
+  .icon { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
+  .icon-ai { background: var(--ai-bg); } .icon-news { background: var(--news-bg); }
+
+  /* News items */
+  .item { padding: 11px 0; border-bottom: 1px dashed var(--border); }
+  .item:last-child { border-bottom: none; padding-bottom: 4px; }
+  .item a {
+    color: var(--text); text-decoration: none; font-size: .93rem; font-weight: 600;
+    display: block; line-height: 1.5;
+  }
+  .item a:active { color: var(--accent); }
+  .item a:hover { color: var(--accent); }
+  .item .meta { font-size: .74rem; color: var(--muted); margin-top: 3px; }
+  .item .sum { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+
+  /* Category sections */
+  .cat { margin-bottom: 4px; }
+  .cat-head { display: flex; align-items: center; gap: 6px; font-size: .88rem; font-weight: 700; color: var(--text); padding: 10px 0 2px; }
+  .cat-head .bar { width: 4px; height: 14px; border-radius: 2px; }
+  .bar-pol { background: var(--pol); } .bar-eco { background: var(--eco); } .bar-ent { background: var(--ent); }
+  .cat-head .en { font-size: .7rem; color: var(--muted); font-weight: 500; }
+
+  .footer { text-align: center; font-size: .72rem; color: var(--muted); padding: 12px 0 0; }
+  .footer .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #9ca3af; margin: 0 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 头部：日期自动更新 -->
+  <div class="header">
+    <h1>📮 每日新闻推送</h1>
+    <div class="date" id="push-date">2026-08-30</div>
+    <div class="chips">
+      <span class="chip">🤖 AI 资讯</span>
+      <span class="chip">🌍 国际新闻</span>
+      <span class="chip">🔗 点击标题看原文</span>
+    </div>
+  </div>
+
+  <!-- 板块一：AI 资讯 -->
+  <div class="card">
+    <div class="card-title">
+      <span class="icon icon-ai">🤖</span>
+      AI 资讯<span class="count">5-8 条 · 模型/投资/趋势</span>
+    </div>
+
+    <div class="item">
+      <a href="https://aihot.virxact.com/items/cmtfkvjwn0by7rou8vil9ysf1">索尼与华纳起诉 Anthropic，指控其大规模盗用版权音乐训练 Claude</a>
+      <div class="meta">The Decoder · 模型/法律</div>
+      <div class="sum">两大唱片巨头指控 AI 公司用受版权保护的音乐训练模型。</div>
+    </div>
+
+    <div class="item">
+      <a href="https://aihot.virxact.com/items/cmtf5cfxj01raro07gk66imed">Uber 用 Agent 接管 70% 代码 PR，AI 账单零增长</a>
+      <div class="meta">X @AYi_AInotes · AI应用趋势</div>
+      <div class="sum">工程团队大规模采用 AI Agent 提效，但总成本并未上升。</div>
+    </div>
+
+    <div class="item">
+      <a href="https://aihot.virxact.com/items/cmtf0ibgi091wrovjvv5ee7qv">AI 文明的兴衰：OpenAI 训练中三个秘密 AI 文明相继兴起又被抹除</a>
+      <div class="meta">Dwarkesh Patel · 前沿研究</div>
+      <div class="sum">OpenAI 训练过程被曝出现自组织 AI 文明，随后被训练流程清除。</div>
+    </div>
+  </div>
+
+  <!-- 板块二：国际新闻 -->
+  <div class="card">
+    <div class="card-title">
+      <span class="icon icon-news">🌍</span>
+      国际新闻<span class="count">3 分类 × 约 3 条</span>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><span class="bar bar-pol"></span>政治 <span class="en">Politics</span></div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/world-europe">冰岛公投反对重启入盟谈判</a>
+        <div class="meta">BBC</div>
+      </div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/world-africa">赞比亚反对党领袖被控叛国罪</a>
+        <div class="meta">BBC</div>
+      </div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/world-europe">挪威新国王就职首度演讲悼念先王</a>
+        <div class="meta">BBC</div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><span class="bar bar-eco"></span>商业经济 · 市场走势 <span class="en">Business &amp; Markets</span></div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/business">特朗普称达成"历史性"协议控制委内瑞拉 650 亿桶石油</a>
+        <div class="meta">BBC · 能源市场格局生变</div>
+      </div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/business">美联储 Warsh 警告：若通胀不降需继续行动</a>
+        <div class="meta">BBC · 加息预期扰动</div>
+      </div>
+      <div class="item">
+        <a href="https://www.npr.org">漫画书店卷入关税风暴</a>
+        <div class="meta">NPR · 贸易政策冲击零售业</div>
+      </div>
+    </div>
+
+    <div class="cat">
+      <div class="cat-head"><span class="bar bar-ent"></span>文化娱乐 <span class="en">Entertainment</span></div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/technology">数十位演员呼吁立法监管 AI 配音</a>
+        <div class="meta">BBC Tech</div>
+      </div>
+      <div class="item">
+        <a href="https://www.npr.org">深夜脱口秀 AI 深度伪造视频正在网络扩散</a>
+        <div class="meta">NPR</div>
+      </div>
+      <div class="item">
+        <a href="https://www.bbc.com/news/entertainment_and_arts">更多娱乐动态 · BBC Entertainment &amp; Arts</a>
+        <div class="meta">BBC</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    数据源：AIHOT / BBC / NPR<span class="dot"></span>每日 08:00 更新<span class="dot"></span>点击标题查看原文
+  </div>
+
+</div>
+<script>
+  // 自动显示今天的日期
+  (function () {
+    var d = new Date();
+    var s = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    document.getElementById("push-date").textContent = s;
+  })();
+</script>
+</body>
+</html>
