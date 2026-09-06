@@ -1,0 +1,28 @@
+name: daily-news
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  render-and-push:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render daily news page
+        run: python3 scripts/daily_render.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "news-push-bot"
+          git config user.email "news-push-bot@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "每日新闻推送 · $(TZ='Asia/Shanghai' date +%Y-%m-%d)"
+          git push origin HEAD:main
