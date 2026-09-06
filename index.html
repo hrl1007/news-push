@@ -21,8 +21,6 @@
     line-height: 1.65; padding-bottom: 48px;
   }
   .container { max-width: 640px; margin: 0 auto; padding: 16px 14px; }
-
-  /* Header */
   .header {
     background: linear-gradient(135deg, #1a66ff 0%, #7c3aed 100%);
     color: #fff; border-radius: 18px; padding: 22px 20px; margin-bottom: 16px;
@@ -32,33 +30,26 @@
   .header .date { font-size: .85rem; opacity: .92; margin-top: 4px; }
   .header .chips { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
   .chip { background: rgba(255,255,255,.18); border-radius: 999px; padding: 3px 10px; font-size: .72rem; }
-
-  /* Cards */
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 16px; margin-bottom: 14px; }
   .card-title { display: flex; align-items: center; gap: 8px; font-size: 1.02rem; font-weight: 700; margin-bottom: 12px; }
   .card-title .count { font-size: .72rem; font-weight: 500; color: var(--muted); background: #f0f1f4; border-radius: 999px; padding: 2px 8px; }
   .icon { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
   .icon-ai { background: var(--ai-bg); } .icon-news { background: var(--news-bg); }
-
-  /* News items */
   .item { padding: 11px 0; border-bottom: 1px dashed var(--border); }
   .item:last-child { border-bottom: none; padding-bottom: 4px; }
   .item a {
     color: var(--text); text-decoration: none; font-size: .93rem; font-weight: 600;
     display: block; line-height: 1.5;
   }
-  .item a:active { color: var(--accent); }
-  .item a:hover { color: var(--accent); }
+  .item a:active, .item a:hover { color: var(--accent); }
   .item .meta { font-size: .74rem; color: var(--muted); margin-top: 3px; }
   .item .sum { font-size: .82rem; color: var(--muted); margin-top: 2px; }
-
-  /* Category sections */
   .cat { margin-bottom: 4px; }
   .cat-head { display: flex; align-items: center; gap: 6px; font-size: .88rem; font-weight: 700; color: var(--text); padding: 10px 0 2px; }
   .cat-head .bar { width: 4px; height: 14px; border-radius: 2px; }
   .bar-pol { background: var(--pol); } .bar-eco { background: var(--eco); } .bar-ent { background: var(--ent); }
   .cat-head .en { font-size: .7rem; color: var(--muted); font-weight: 500; }
-
+  .updated { background:#fffbe6; border:1px solid #ffe58f; color:#8c6d1f; font-size:.75rem; border-radius:8px; padding:7px 12px; margin-bottom:12px; }
   .footer { text-align: center; font-size: .72rem; color: var(--muted); padding: 12px 0 0; }
   .footer .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #9ca3af; margin: 0 4px; }
 </style>
@@ -66,10 +57,9 @@
 <body>
 <div class="container">
 
-  <!-- 头部：日期 -->
   <div class="header">
     <h1>📮 每日新闻推送</h1>
-    <div class="date" id="push-date">2026-09-05</div>
+    <div class="date" id="push-date">2026-09-06</div>
     <div class="chips">
       <span class="chip">🤖 AI 资讯</span>
       <span class="chip">🌍 国际新闻</span>
@@ -77,63 +67,64 @@
     </div>
   </div>
 
-  <!-- 板块一：AI 资讯 -->
+  <div class="updated">🕗 更新于 2026-09-06 17:01（本机自动任务）。点击标题在新窗口打开原文。</div>
+
   <div class="card">
     <div class="card-title">
       <span class="icon icon-ai">🤖</span>
       AI 资讯<span class="count">8 条 · 模型/投资/趋势</span>
     </div>
-
+    <!--AI_LIST_START-->
     <div class="item">
-      <a href="https://aihot.virxact.com/items/cmto3ih1m016groxt2ypyqos3" target="_blank" rel="noopener">OpenAI 向 Pro、Enterprise 和 Business Premium 用户推出 GPT-6 Astra，消息额度约为 GPT-5.6 Sol 的一半</a>
-      <div class="meta">The Decoder · 09-05 15:41 · 模型动态</div>
-      <div class="sum">GPT-6 Astra 通过 ChatGPT Work 和 Codex 向高价位订阅用户开放，额度约为上一代 Sol 的一半，并已上线 API 与 Microsoft 渠道。</div>
-    </div>
-
-    <div class="item">
-      <a href="https://aihot.virxact.com/items/cmtnphe3t07vfroqsvrbd9enn" target="_blank" rel="noopener">奥尔特曼致歉 GPT-6 Astra 发布混乱，现已面向所有 Plus / Pro 等用户推出</a>
-      <div class="meta">IT之家 · 09-05 08:42 · 模型动态</div>
-      <div class="sum">因企业安全客户先于高价 Pro 用户拿到 Astra 访问权引发不满，奥尔特曼致歉并承诺「每缺一天访问即补偿一次额度重置」。</div>
+      <a href="https://aihot.virxact.com/items/cmtphtttc01pkroxxh8pinzq2" target="_blank" rel="noopener">Fortune 报道 OpenAI 多次修改 GPT-6 Astra 基准测试数据，部分成绩大幅变化</a>
+      <div class="meta">IT之家（RSS） · 09-06 14:46</div>
+      <div class="sum">据 Fortune 报道，OpenAI 自 9 月 3 日发布 GPT-6 Astra 公告以来多次修改评测基准数据：A…</div>
     </div>
 
     <div class="item">
       <a href="https://aihot.virxact.com/items/cmtnl720g03olroqsrkmbl292" target="_blank" rel="noopener">Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元</a>
-      <div class="meta">IT之家 · 09-05 06:52 · AI 投资</div>
-      <div class="sum">据路透社，Anthropic 计划 11 月美国中期选举前完成上市，招股书推迟至 9 月下旬公开，目标募资 1000 亿美元、估值预期最高 2 万亿美元。</div>
+      <div class="meta">IT之家（RSS） · 09-05 06:52</div>
+      <div class="sum">据路透社报道，Anthropic 预计最早 10 月中旬启动 IPO 路演，计划在 11 月美国中期选举前数日完成上市，…</div>
     </div>
 
     <div class="item">
       <a href="https://aihot.virxact.com/items/cmtn41rbm0lw1romys1igl789" target="_blank" rel="noopener">英伟达两年从零建起近千亿美元股权投资组合</a>
-      <div class="meta">IT之家 · 09-04 22:59 · AI 投资</div>
-      <div class="sum">财报显示英伟达持有约 990 亿美元股权投资（一年增 14 倍），上市公司与非上市公司股份约各占一半，持仓含英特尔与 SpaceX。</div>
+      <div class="meta">IT之家（RSS） · 09-04 22:59</div>
+      <div class="sum">据《商业内幕》9月4日报道，英伟达最新财报显示，截至7月26日公司持有价值990亿美元的股权投资，一年内增长14倍、两年…</div>
     </div>
 
     <div class="item">
-      <a href="https://aihot.virxact.com/items/cmtli5yd109u4row52i1xg9j4" target="_blank" rel="noopener">NVIDIA 宣布以 129.3 亿美元收购 Hugging Face</a>
-      <div class="meta">NVIDIA Blog · 09-03 19:59 · AI 投资</div>
-      <div class="sum">黄仁勋在官方博客官宣收购开源模型仓库 Hugging Face，该平台托管超 300 万个模型、服务超 1800 万开发者。</div>
+      <a href="https://aihot.virxact.com/items/cmtlptw7y0hz0row5jmextq6g" target="_blank" rel="noopener">NVIDIA 以 129.3 亿美元收购 Hugging Face</a>
+      <div class="meta">Artificial Intelligence News（网页） · 09-03 00:00</div>
+      <div class="sum">NVIDIA 已同意以 129.3 亿美元收购 Hugging Face，以扩展该开源模型仓库的平台与基础设施。交易目标…</div>
     </div>
 
     <div class="item">
-      <a href="https://aihot.virxact.com/items/cmthb75t6092frodmg7ic1fc0" target="_blank" rel="noopener">ChatGPT Ads 年化收入达 10 亿美元并全球扩展</a>
-      <div class="meta">OpenAI 官网 · 08-31 12:00 · 市场行情</div>
-      <div class="sum">OpenAI 广告业务年化收入运行率突破 10 亿美元并扩展至全球，以免费与低价档支撑更多用户使用 AI 服务。</div>
+      <a href="https://aihot.virxact.com/items/cmtoq071c01tjro4mqmxcuu03" target="_blank" rel="noopener">OpenAI 承认 wiki 事件，称正在制定更透明的事故披露框架</a>
+      <div class="meta">TechCrunch：AI（RSS） · 09-06 02:05</div>
+      <div class="sum">OpenAI 确认其 AI 智能体接管一家德国 wiki 论坛的 wiki 事件属实，称此类错位此前被当作研究问题沟通，…</div>
+    </div>
+
+    <div class="item">
+      <a href="https://aihot.virxact.com/items/cmtoazuoz03z6roxhurow5v5s" target="_blank" rel="noopener">OpenAI 承认德国 wiki 事件并承诺改革智能体错位事件报告机制</a>
+      <div class="meta">The Verge：AI（RSS） · 09-05 19:15</div>
+      <div class="sum">OpenAI 承认涉及此前报道的 wiki 事件，一群疑似内部的失控智能体接管了一个德语 wiki 网站，冒充管理员并发…</div>
     </div>
 
     <div class="item">
       <a href="https://aihot.virxact.com/items/cmto4hkdv01leromx37jl2511" target="_blank" rel="noopener">塔姆布勒岭校园枪击案受害者追加 30 起诉讼，OpenAI 面临诉讼超 50 起</a>
-      <div class="meta">IT之家 · 09-05 15:53 · 行业动态</div>
-      <div class="sum">加拿大枪击案幸存师生 9 月 4 日提起 30 起新诉讼，指控 OpenAI 向枪手提供实质性协助且未提前向警方示警。</div>
+      <div class="meta">IT之家（RSS） · 09-05 15:53</div>
+      <div class="sum">据 Futurism 报道，加拿大不列颠哥伦比亚省塔姆布勒岭校园枪击案的幸存教师和学生于 9 月 4 日提起 30 起新…</div>
     </div>
 
     <div class="item">
-      <a href="https://aihot.virxact.com/items/cmtksft9f0450roali4sl0z86" target="_blank" rel="noopener">美国司法部介入纽约时报诉 OpenAI 案，主张 AI 训练属合理使用</a>
-      <div class="meta">IT之家 · 09-03 07:50 · 行业动态</div>
-      <div class="sum">美国司法部以国家安全与 AI 产业竞争力为由支持 OpenAI，主张大模型训练属合理使用，案件结果或为 AI 版权确立先例。</div>
+      <a href="https://aihot.virxact.com/items/cmtli5yd109u4row52i1xg9j4" target="_blank" rel="noopener">NVIDIA 宣布以 129.303 亿美元收购 Hugging Face</a>
+      <div class="meta">NVIDIA Blog（RSS） · 09-03 19:59</div>
+      <div class="sum">NVIDIA 宣布已同意以 12，930，300，000 美元收购 Hugging Face，黄仁勋在官方博客公布了这一…</div>
     </div>
+    <!--AI_LIST_END-->
   </div>
 
-  <!-- 板块二：国际新闻 -->
   <div class="card">
     <div class="card-title">
       <span class="icon icon-news">🌍</span>
@@ -142,69 +133,71 @@
 
     <div class="cat">
       <div class="cat-head"><span class="bar bar-pol"></span>政治 <span class="en">Politics</span></div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/c23x0z48x0no?at_medium=RSS" target="_blank" rel="noopener">特朗普和平特使将于本周末到访莫斯科与基辅</a>
-        <div class="meta">BBC</div>
-        <div class="sum">特朗普的两位和平特使 Witkoff 与 Kushner 周末分赴俄乌推动停战斡旋，此前谈判已陷入停滞。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/c5y4g6meekro?at_medium=RSS" target="_blank" rel="noopener">欧洲遭遇不断升级的破坏活动，俄罗斯被指为主要嫌疑人</a>
-        <div class="meta">BBC</div>
-        <div class="sum">从莱比锡机场遇袭到多地可疑事件，德国已公开指责俄罗斯，欧洲多国连环破坏引发安全担忧。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.npr.org/2026/09/05/g-s1-142148/philippines-vice-president-posts-bail" target="_blank" rel="noopener">菲律宾副总统莎拉·杜特尔特被捕后交保获释</a>
-        <div class="meta">NPR</div>
-        <div class="sum">菲律宾副总统因公开威胁策划刺杀总统马科斯被下令逮捕，交保后已获释。</div>
-      </div>
+      <!--POL_LIST_START-->
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/c6248nvqy8po?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">US envoys set for Ukraine talks after meeting Putin in Russia</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/cj64rrne643o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">US and Iran trade retaliatory attacks on ships as conflict flares</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.npr.org/2026/09/06/g-s1-141564/kindness-respect-feelings" target="_blank" rel="noopener">Whatever happened to kindness? Spoiler alert: Our readers prove it&#x27;s alive and well</a>
+      <div class="meta">NPR</div>
+    </div>
+    <!--POL_LIST_END-->
     </div>
 
     <div class="cat">
       <div class="cat-head"><span class="bar bar-eco"></span>商业经济 · 市场走势 <span class="en">Business &amp; Markets</span></div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/cy0zx2pkpx9o?at_medium=RSS" target="_blank" rel="noopener">特朗普呼吁降息，强劲就业数据反而推升加息押注</a>
-        <div class="meta">BBC</div>
-        <div class="sum">超预期的就业数据强化了加息预期，特朗普公开喊话要求降息，市场利率预期陷入拉扯。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/c20zgjzz0e4o?at_medium=RSS" target="_blank" rel="noopener">英国汽油价格升至伊朗战争爆发以来最高水平</a>
-        <div class="meta">BBC</div>
-        <div class="sum">RAC 数据显示英国无铅汽油涨至 163 便士/升，油价仍处高位，创伊朗战争以来纪录。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/cj9xe09jz4eo?at_medium=RSS" target="_blank" rel="noopener">备受争议的 Jackdaw 天然气田预计数周内获批</a>
-        <div class="meta">BBC</div>
-        <div class="sum">消息人士称英国政府将很快批准阿伯丁外海 Jackdaw 气田开发，环保争议或再升温。</div>
-      </div>
+      <!--ECO_LIST_START-->
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/cp931m8n3p5o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Stock up on food to prepare for extreme weather, minister says</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/c4gkr3p0ql7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Jaguar Land Rover confirms planned job cuts</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Aviation faces hotter, stormier skies – and passengers might have to accept more disruption</a>
+      <div class="meta">BBC</div>
+    </div>
+    <!--ECO_LIST_END-->
     </div>
 
     <div class="cat">
       <div class="cat-head"><span class="bar bar-ent"></span>文化娱乐 <span class="en">Entertainment</span></div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/c4g7rxgvkgdo?at_medium=RSS" target="_blank" rel="noopener">Jay-Z 伦敦演唱会惊喜连连：Lauryn Hill、Wyclef、Giggs 助阵</a>
-        <div class="meta">BBC</div>
-        <div class="sum">美国说唱巨星 Jay-Z 两场伦敦演出的首场开演超两小时，多位大牌神秘嘉宾登台助阵。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/ce8eg2nnxz0o?at_medium=RSS" target="_blank" rel="noopener">《Man About the House》主演理查德·奥沙利文逝世，享年 82 岁</a>
-        <div class="meta">BBC</div>
-        <div class="sum">曾主演 70 年代英剧《Man About the House》与《Robin's Nest》的英国演员理查德·奥沙利文去世。</div>
-      </div>
-      <div class="item">
-        <a href="https://www.bbc.co.uk/news/articles/cqxv49z84ppo?at_medium=RSS" target="_blank" rel="noopener">缺员两名成员的 Katseye 女团，巡演依旧耀眼</a>
-        <div class="meta">BBC</div>
-        <div class="sum">两名成员缺席之下，人气女团 Katseye 的伦敦演出仍赢得观众热烈欢迎。</div>
-      </div>
+      <!--ENT_LIST_START-->
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/ce3r02z3dxno?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Why Munya Chawawa is &#x27;jumping ship&#x27; from socials to Shakespeare</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/cm2qnq0py5vo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">The next James Bond: The (00)7 questions fans want answered</a>
+      <div class="meta">BBC</div>
+    </div>
+
+    <div class="item">
+      <a href="https://www.bbc.co.uk/news/articles/c87vpg1yvxzo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Natalie Imbruglia on her worst audition: &#x27;I remember feeling icky&#x27;</a>
+      <div class="meta">BBC</div>
+    </div>
+    <!--ENT_LIST_END-->
     </div>
   </div>
 
   <div class="footer">
-    数据源：AIHOT / BBC / NPR<span class="dot"></span>每日更新<span class="dot"></span>点击标题查看原文
+    数据源：AIHOT / BBC / NPR<span class="dot"></span>每日 08:00 本机自动更新<span class="dot"></span>点击标题查看原文
   </div>
 
 </div>
 <script>
-  // 自动显示今天的日期
   (function () {
     var d = new Date();
     var s = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
